@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block body %}
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav nav-pills navbar-nav">
+            <li  id="home"><a href="home">Home</a></li>
+            <li  id="about"><a href="about">API</a></li>
+            <li class = "active"id="sos"><a href="SensorObservationService">SensorObservationService</a></li>
+            <li  id="oai"><a href="OpenArchiveInitiative">OpenArchiveInitiative</a></li>
+            <li  id="gui"><a href="GraphicalUserInterface">GraphicalUserInterface</a></li>
+          </ul>
+        </div>
+      </nav>
+
+     <div class="tab-content">
+
+ <div class="tab-pane active" id="sos">
+ <title>**`SOS server implementation`**
+
+`GetCapabilities`
+   
+- Purpose:	Returns a metadata for this service   
+- Parameters:	request = GetCapabilities   
+- Example</title>
+
+</head>
+<body>
+<p><strong><code>SOS server implementation</code></strong></p>
+
+<p><code>GetCapabilities</code></p>
+
+<ul>
+<li>Purpose:  Returns a metadata for this service</li>
+<li>Parameters:   request = GetCapabilities</li>
+<li>Example: <a href="http://airchive.logismi.co/SOS/?request=GetCapabilities">http://airchive.logismi.co/SOS/?request=GetCapabilities</a></li>
+</ul>
+
+
+<p><code>DescribeSensor</code></p>
+
+<ul>
+<li>Purpose:  Return sensor characteristics</li>
+<li>Parameters: request = DescribeSensor <br/>
+              procedure = URN of sensor (see getCapabilities output for sensor's URN)</li>
+<li>Example: <a href="http://airchive.logismi.co/SOS/?request=DescribeSensor&amp;procedure=DigitalPressure">http://airchive.logismi.co/SOS/?request=DescribeSensor&amp;procedure=DigitalPressure</a></li>
+</ul>
+
+
+<p><code>GetObservation</code></p>
+
+<ul>
+<li>Purpose   Returns observation data for a station within a user-defined time frame</li>
+<li>Parameters:   request = GetObservation <br/></li>
+  <li><code>offering</code> = URN of sensor (see getCapabilities output for sensor's URN) <br/></li>
+  <li><code>observedProperty</code> = (One of : <em>Temperature, Pressure, Nitrogen_Dioxide, Carbon_Monoxide</em>) <br/></li>
+  <li><code>eventTime</code> = (YYYY-MM-DD HH:MM:SS/YYYY-MM-DD HH:MM:SS). When eventTime = Datetime/ <em>AiRCHIVE</em> returns<br/>
+   <em>measurements</em> from <strong>Datetime</strong> until now.</li>
+<li>Example: <a href="http://airchive.logismi.co/SOS/?request=GetObservation&amp;observedProperty=Pressure&amp;eventTime=2015-08-16 10:00:00/2015-08-16 14:00:00&amp;procedure=DigitalPressure&amp;offering=urn:offering:AiRCHIVE">http://airchive.logismi.co/SOS/?request=GetObservation&observedProperty=Pressure&eventTime=2015-08-16%2010:00:00/2015-08-16%2014:00:00&offering=urn:offering:AiRCHIVE&procedure=DigitalPressure</a></li>
+</ul>
+
+	</div>
+{% endblock %}

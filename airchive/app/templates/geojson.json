@@ -1,0 +1,14 @@
+{ "type": "FeatureCollection",
+   "features": [
+	   {%for measurement in results%}
+     { "type": "Feature",
+       "geometry": {"type": "Point", "coordinates": [{{measurement.station.latitude}}, {{measurement.station.longitude}}]},
+       "properties": {"Quantity": {{measurement.quantity.name}},"Datetime": {{measurement.timestamp}}, "Value": {{measurement.value}}, "Station": {{measurement.station.name}}, "Sensor":{{measurement.sensor.short_name}}}
+       },
+	   {%endfor%}
+       { "type": "Feature",
+         "geometry": {"type": "Point", "coordinates": [{{last.station.latitude}}, {{last.station.longitude}}]},
+         "properties": {"Quantity": {{last.quantity.name}}, "Datetime": {{last.timestamp}}, "Value": {{last.value}}, "Station": {{last.station.name}}, "Sensor":{{last.sensor.short_name}}}
+         }
+      ]
+    }

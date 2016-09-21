@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block body %}
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav nav-pills navbar-nav">
+            <li  id="home"><a href="home">Home</a></li>
+            <li  id="about"><a href="about">API</a></li>
+            <li id="sos"><a href="SensorObservationService">SensorObservationService</a></li>
+            <li class = "active" id="gui"><a href="gui">GraphicalUserInterface</a></li>
+			<li  id="gui"><a href="maps">Maps</a></li>
+          </ul>
+        </div>
+      </nav>
+
+     <div class="tab-content">
+     
+<style type="text/css" media="all">
+    /* fix rtl for demo */
+    .chosen-rtl .chosen-drop { left: -9000px; }
+  </style>
+
+<div class="row">
+    <div class="col-xs-3">
+
+		<select name = "quantity" id = "quantity" data-placeholder="Select quantity" style="width:230px;" class="chosen-select" tabindex="2">
+	    <option value=""></option>{%for station,quantities in results.iteritems()%}
+		<optgroup label="{{station}}">{%for quantity in quantities%}
+			<option>{{quantity}}</option>{%endfor%}
+		</optgroup>{%endfor%}
+		</select>
+
+    </div>
+
+	<div class="col-xs-3">
+		<input id="datetimepicker1" type="text">
+    </div>
+  
+    <div class="col-xs-3">
+        <input id="datetimepicker2" type="text">
+    </div>
+	<div class="col-xs-3">
+		 <a href="javascript:void(0)" id="calculate" class="btn btn-info">Get Graph</a>
+	</div>
+</div>
+
+    
+
+<div class="row">
+    <div id="placeholder" style="width:100%;height:500px;"></div>
+</div>
+{% endblock %}

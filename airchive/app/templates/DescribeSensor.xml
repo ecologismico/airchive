@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sml:SensorML 
+	xmlns:sml="http://www.opengis.net/sensorML/1.0.1" 
+	xmlns:swe="http://www.opengis.net/swe/1.0.1" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd" version="1.0.1">
+  <sml:identification>
+    <sml:IdentifierList>
+      <sml:identifier name="longName">
+        <sml:Term>
+          <sml:value>{{sensor.long_name}}</sml:value>
+        </sml:Term>
+      </sml:identifier>
+      <sml:identifier name="shortName">
+        <sml:Term>
+          <sml:value>{{sensor.short_name}}</sml:value>
+        </sml:Term>
+      </sml:identifier>
+      <sml:identifier name="SensorId">
+        <sml:Term>
+          <sml:value>{{sensor.urn}}</sml:value>
+        </sml:Term>
+      </sml:identifier>
+    </sml:IdentifierList>
+  </sml:identification>
+</sml:SensorML>

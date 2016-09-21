@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block body %}
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav nav-pills navbar-nav">
+            <li  id="home"><a href="home">Home</a></li>
+            <li  id="about"><a href="about">API</a></li>
+            <li id="sos"><a href="SensorObservationService">SensorObservationService</a></li>
+            <li class = "active" id="oai"><a href="OpenArchiveInitiative">OpenArchiveInitiative</a></li>
+            <li  id="gui"><a href="GraphicalUserInterface">GraphicalUserInterface</a></li>
+          </ul>
+        </div>
+      </nav>
+
+     <div class="tab-content">
+<div class="tab-pane active" id="oai">
+<title>**`OAI/PMH service provider implementation`**
+
+`Identify`
+
+* Purpose: This verb is used to retrieve information about</title>
+
+</head>
+<body>
+<p><strong><code>OAI/PMH service provider implementation</code></strong></p>
+
+<p><code>Identify</code></p>
+
+<ul>
+<li>Purpose: This verb is used to retrieve information about our repository. <em>AiRCHIVE</em>s' response includes: Repository base URL (<code>baseURL</code>), the earliest time that repository has records (<code>earliestDatestamp</code>) and administrators' email address (<code>adminEmail</code>).</li>
+<li>Arguments: None</li>
+<li>Error and Exception Conditions:  <strong> badArgument</strong> - The request includes illegal arguments.</li>
+<li><code>Example</code>: <a href="http://airchive.logismi.co/oai/?verb=Identify">http://airchive.logismi.co/oai/?verb=Identify</a></li>
+</ul>
+
+
+<p><code>ListIdentifiers</code></p>
+
+<ul>
+<li>Purpose: This verb is used to retrieve available datasets hosted on <em>AiRCHIVE</em>.</li>
+<li><p>Arguments:   <br/>
+<strong>from</strong>: an optional argument with a UTCdatetime value, which specifies a lower bound for datestamp-based selective harvesting. <br/>
+<strong>until</strong>: an optional argument with a UTCdatetime value, which specifies a upper bound for datestamp-based selective harvesting.
+<strong>metadataPrefix</strong>: a required argument, which specifies that headers should be returned only if the metadata format matching the supplied metadataPrefix is available or, depending on the repository's support for deletions, has been deleted. The metadata formats supported by a repository and for a particular item can be retrieved using the ListMetadataFormats request.  <br/>
+<strong>set</strong> an optional argument with a setSpec value , which specifies set criteria for selective harvesting.  <br/>
+<strong>resumptionToken</strong> an exclusive argument with a value that is the flow control token returned by a previous ListIdentifiers request that issued an incomplete list.</p></li>
+<li><p><code>Example</code>: <a href="http://airchive.logismi.co/oai/?verb=ListIdentifiers">http://airchive.logismi.co/oai/?verb=ListIdentifiers</a></p></li>
+</ul>
+
+
+<p><code>ListMetadaFormats</code></p>
+
+<ul>
+<li>Purpose:  <em>AiRCHIVE</em> returns a list with the metadata formats that can be disseminated from our repository. We use an optional argument, <code>identifier</code>, that specifies the unique identifier of the item for which available metadata formats are being requested. If this argument is omitted, then the response includes all metadata formats supported by this repository.</li>
+<li><code>Example</code>: <a href="http://airchive.logismi.co/oai/?verb=ListMetadataFormats">http://airchive.logismi.co/oai/?verb=ListMetadataFormats</a></li>
+</ul>
+
+
+<p><code>ListRecords</code></p>
+
+<ul>
+<li>Purpose: This verb is used to harvest records (<em>measurements</em>) from a specified by harvester, sensor (<em>identifier</em>). Harvester can use optional arguments in its query, to permit selective harvesting of records based on time stamp. These optional arguments specify a lower (<code>from</code>) and an upper (<code>until</code>) bound for timestamp-based selective harvesting. The response format of the requested metadata can be specified with <code>metadataPrefix</code> key. When response's length exceeds 100 records, <em>AiRCHIVE</em> sends a <code>resumptionToken</code>, which is the flow control token returned by a previous <code>ListRecords</code> request that issued an incomplete list. <code>resumptionToken</code> can be used as an optional argument.</li>
+<li><code>Example</code>: <a href="http://airchive.logismi.co/oai/?verb=ListRecords&amp;metadataPrefix=oai_dc">http://airchive.logismi.co/oai/?verb=ListRecords&amp;metadataPrefix=oai_dc</a></li>
+</ul>
+
+
+</div>
+{% endblock %}

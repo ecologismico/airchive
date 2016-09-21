@@ -1,0 +1,1 @@
+{"data":[{%for measurement in results%}[{{flot(measurement.timestamp)}}, {{measurement.value|float}}],{%endfor%}[{{flot(last.timestamp)}}, {{last.value|float}}]], "label": "{{last.quantity.name}} from {{last.station.name}} station in ({{last.quantity.uom_name}})"}

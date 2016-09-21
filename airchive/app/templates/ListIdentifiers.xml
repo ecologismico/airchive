@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href="oai.xsl" ?>
+
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
+         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>{{ResponseDate}}</responseDate>
+  <request verb="ListIdentifiers" 
+	  		{% if from %}
+	       from="{{from}}"
+		    {% endif %}
+			{%if metadataPrefix %} 
+           metadataPrefix="{{MetadataPrefix}}"
+		    {% endif %}
+			{% if set %}
+           set="{{set}}"
+		   {% endif %}>
+		   http://airchive.logismi.co/oai
+  </request>
+  <ListIdentifiers>
+	 {% for i in MetadataDatabase %} 
+   <header>  
+    <identifier>{{i.Identifier}}</identifier>
+    <datestamp>{{i.Datestamp}}</datestamp>
+    <setSpec>{{i.Set}}</setSpec>
+   </header>
+   {% endfor %}
+   {% if ResumptionToken %}
+    <resumptionToken expirationDate="ExpirationDate" 
+      completeListSize="{{CompleteSize}}" 
+      cursor="{{Cursor}}">{{ResumptionToken}}</resumptionToken>
+	  {% endif %}
+ </ListIdentifiers>
+</OAI-PMH>

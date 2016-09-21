@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block body %}
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav nav-pills navbar-nav">
+            <li class="active" id="home"><a href="home">Home</a></li>
+            <li  id="about"><a href="about">API</a></li>
+            <li id="sos"><a href="SensorObservationService">SensorObservationService</a></li>
+			<li  id="oai"><a href="OpenArchiveInitiative">OpenArchiveInitiative</a></li>
+            <li  id="gui"><a href="gui">GraphicalUserInterface</a></li>
+          </ul>
+        </div>
+      </nav>
+
+     <div class="tab-content">
+      <div class="tab-pane active" id="home">
+      
+     <div class="tab-content">
+      <div class="tab-pane active" id="home">
+      
+     <div class="row"> 
+             <div class="col-xs-6 col-sm-6">
+             
+ <a href="../static/img/Airchive.jpg" target="_blank"><img src="../static/img/rpi.jpg" alt="rpi" width="1140" height="450"></a>
+  
+             </div>
+
+      		
+  
+      
+      
+      </div>
+      
+      
+      <div class="row">
+      <div class="col-xs-12 col-md-6 dash-component AiRCHIVE">
+            <h2> AiRHIVE Project</h2>
+            <ul class="quick-links">
+                <li><a class="dash-doc-link" href="../static/img/iemss.pdf">iEMSs Paper</a></li>
+              </ul>
+              <p style="text-align:justify">
+AiRCHIVE is a software platform for providing open access to sensor data with different ways, that account for machine interoperability. It is built with Raspberry Pi, a low-cost, pocket-size computer, and Air Pi a low-cost amateur sensory kit for air quality monitoring. Raspberry Pi with AirPi allowed us to easily capture raw sensor data and store them in a local database, and with AiRCHIVE we deployed “on sensor” a web server that provides with a set of services for data preprocessing and dissemination, including an implementation of OGC/SOS services and the OAI/PMH harvesting protocol.
+</p>
+            </div>
+            
+            <div class="col-xs-12 col-md-6 dash-component ECO">
+            <h2>ecologismico</h2>
+            <ul class="quick-links">
+                <li><a class="dash-doc-link" href="http://eco.logismi.co" target="_blank">Information</a></li>
+              </ul>
+              <p style="text-align:justify">
+			               Ecologismico is a neologism from the Greek words ecology and logismico (the modern Greek word for software), that glues together logos (stands for reasoning in ancient Greek) to define the study of natural systems language and the research of intelligent software systems for the environment.
+			  <b>Software Engineering for the Environment</b> is a research group (aka "collaboratory") of the <a href="http://www.intersys-lab.org" target="_blank">Internetworked Systems Lab</a> of the <a href="http://www.ee.duth.gr/el/" target="_blank">Electrical and Computer Engineering Department</a> at Democritus University of Thrace.
+              </p>
+              </div>
+            
+      </div>
+          <div class="row"> 
+            <div class="col-xs-12 col-md-6 dash-component OAI">
+              <h2>OAI/PMH</h2>
+              <ul class="quick-links">
+                <li><a class="dash-doc-link" href="http://www.openarchives.org/pmh/" target="_blank">Docs</a></li>
+              </ul>
+              <p style="text-align:justify">
+ 				The Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) is a low-barrier mechanism for repository interoperability. Data Providers are repositories that expose structured metadata via OAI-PMH. Service Providers then make OAI-PMH service requests to harvest that metadata.
+              </p>
+            </div>
+            <div class="col-xs-12 col-md-6 dash-component SOS">
+              <h2>OGC Sensor Observation Service</h2>
+              <ul class="quick-links">
+                <li><a class="dash-doc-link" href="http://www.opengeospatial.org/standards/sos" target="_blank">Docs</a></li>
+              </ul>
+              <p style="text-align:justify">
+               The sos standard is applicable to use cases in which sensor data needs to be managed in an interoperable way. This standard defines a Web service interface which allows querying observations, sensor metadata, as well as representations of observed features.
+              </p>
+            </div>
+          </div>
+          
+          
+          <div class="row">
+          <div class="col-xs-12 col-md-6 dash-component RPi">
+              <h2>Raspberry Pi</h2>
+              <ul class="quick-links">
+                <li><a class="dash-doc-link" href="http://www.raspberrypi.org/documentation/" target="_blank">Docs</a></li>
+              </ul>
+              <p style="text-align:justify">
+               The Raspberry Pi is a low cost, credit-card sized computer which is capable of doing everything someone would expect a desktop computer to do. It plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is powerful enough to handle everyday tasks such as making spreadsheets, word processing, browsing the internet and playing high-definition video.
+              </p>
+            </div>
+            <div class="col-xs-12 col-md-6 dash-component AirPi">
+              <h2>AirPi Module</h2>
+              <ul class="quick-links">
+                <li><a class="dash-doc-link" href="http://airpi.es/about.php" target="_blank">Docs</a></li>
+              </ul>
+              <p style="text-align:justify">
+               The AirPi is an air quality and weather surveillance station made with a Raspberry Pi computer. This project aims to facilitate access to localized meteorological surveillance for the masses.
+              </p>
+            </div>
+          
+          
+          </div>	
+          </div>
+		  
+		  
+       
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block body %}
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav nav-pills navbar-nav">
+            <li id="home"><a href="home">Home</a></li>
+            <li class = "active" id="about"><a href="about">API</a></li>
+            <li id="sos"><a href="SensorObservationService">SensorObservationService</a></li>
+			<li  id="oai"><a href="OpenArchiveInitiative">OpenArchiveInitiative</a></li>
+            <li  id="gui"><a href="gui">GraphicalUserInterface</a></li>
+          </ul>
+        </div>
+      </nav>
+
+     <div class="tab-content">
+
+<div class="tab-pane active" id="about">
+<title>**`API`**   
+You can submit your query to the system and take responses. Query should</title>
+
+</head>
+<body>
+<p><strong><code>API</code></strong> <br/>
+You can submit your query to the system and take responses. Query should have the following format:  <br/>
+<code>http://airchive.logismi.co/getdata/?quantity=MeasuredQuantity&fromtime=FROMDATE&amp;totime=TODATE&ampformat=FORMAT&amp;filter=FILTER&amp;granularity=Filter's granularity</code> <br/>
+Where MeasuredQuantity is one of :</p>
+
+<ul>
+<li><em>Temperature</em></li>
+<li><em>Pressure</em></li>
+<li><em>Nitrogen_Dioxide</em></li>
+<li><em>Carbon_Monoxide</em></li>
+<li><em>Volume</em></li>
+</ul>
+
+
+<p>Format is one of:</p>
+
+<ul>
+<li><em>csv</em></li>
+<li><em>GeoRSS</em></li>
+<li><em>GeoJSON</em></li>
+</ul>
+
+<p>For more information regarding quantities, sensors, stations, filters and time boundaries click <a href="http://127.0.0.1/Stations">here</a></p>
+<p>Fromtime and Totime has the following structure:   <br/>
+YYYY-MM-DD HH:MM:SS</p>
+
+<p><code>Example 1</code>: <a href="http://airchive.logismi.co/getdata/?quantity=Temperature&fromtime=2015-08-15%2009:00:00&totime=2015-08-16%2009:00:00&sensor=DigitalTemperature&station=AiRCHIVE&filter=none&format=georss">GeoRSS response</a></p>
+
+<p><code>Example 2</code>: <a href="http://airchive.logismi.co/getdata/?quantity=Temperature&fromtime=2015-08-15%2009:00:00&totime=2015-08-16%2009:00:00&sensor=DigitalTemperature&station=AiRCHIVE&filter=none&format=csv">CSV response</a></p>
+
+<p><code>Example 3</code>: <a href="http://airchive.logismi.co/getdata/?quantity=Temperature&fromtime=2015-08-15%2009:00:00&totime=2015-08-16%2009:00:00&sensor=DigitalTemperature&station=AiRCHIVE&filter=none&format=geojson">GeoJSON response</a></p>
+</div>
+
+
+{% endblock %}

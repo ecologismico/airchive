@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href="oai.xsl" ?>
+
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
+         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>{{ResponseDate}}</responseDate>
+  <request verb="Identify">{{station.station_url}}:{{station.station_url}}/oai/</request>
+  <Identify>
+    <repositoryName>{{station.name}} - {{station.description}}</repositoryName>
+    <baseURL>{{station.station_url}}:{{station.station_url}}/oai/</baseURL>
+    <protocolVersion>2.0</protocolVersion>
+    <adminEmail>{{station.admin_email}}</adminEmail>
+    <earliestDatestamp>2013-12-27T15:17:47Z</earliestDatestamp>
+    <deletedRecord>no</deletedRecord>
+    <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>
+    <compression>deflate</compression>
+    <description>
+      <oai-identifier 
+        xmlns="http://www.openarchives.org/OAI/2.0/oai-identifier"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation=
+            "http://www.openarchives.org/OAI/2.0/oai-identifier
+        http://www.openarchives.org/OAI/2.0/oai-identifier.xsd">
+        <scheme>oai</scheme>
+        <repositoryIdentifier>{{station.name}}</repositoryIdentifier>
+        <delimiter>:</delimiter>
+        <sampleIdentifier>oai:{{station.name}}:Summary/December/Temperature</sampleIdentifier>
+      </oai-identifier>
+    </description>
+ </Identify>
+</OAI-PMH>

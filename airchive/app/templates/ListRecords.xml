@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type='text/xsl' href="oai.xsl" ?>
+
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" 
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+		 <responseDate>{{ResponseDate}}</responseDate>
+		 <request verb="ListRecords" metadataPrefix="oai_dc">http://airchive.logismi.co/oai</request>
+		 <ListRecords>
+			 {% for i in DC %}
+			 <record>
+				 <header>
+					 <identifier>{{i.Identifier}}</identifier>
+					 <datestamp>{{i.Datestamp}}</datestamp>
+					 <setSpec>{{i.Set}}</setSpec>
+				 </header>
+				 <metadata>
+					 <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+						 <dc:title>{{i.title}}</dc:title>
+						 {% for j in i.creator %}
+						 <dc:creator>{{j}}</dc:creator>
+						 {% endfor %}
+						 {% for k in range(0, i.len1)%}
+						 <dc:subject>{{i.subject[k]}}</dc:subject>
+						 <dc:description>{{i.description[k]}}</dc:description>
+						 {% endfor %}
+						 <dc:date>{{i.Datestamp}}</dc:date>
+						 <dc>{{i.len2}}</dc>
+						 {% for l in range(0,i.len2)%}
+						 <dc:format>{{i.format[l]}}</dc:format>
+						 <dc:identifier>{{i.link[l]}}</dc:identifier>
+						 {% endfor %}
+						 <dc:language>en</dc:language>
+					 </oai_dc:dc>
+				 </metadata>
+			 </record>
+			 {% endfor %}
+		     {% if ResumptionToken %}
+		      <resumptionToken expirationDate="ExpirationDate" 
+		        completeListSize="{{CompleteSize}}" 
+		        cursor="{{Cursor}}">{{ResumptionToken}}</resumptionToken>
+		  	  {% endif %}
+		 </ListRecords>
+</OAI-PMH>

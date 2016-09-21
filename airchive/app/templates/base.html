@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<base href=""/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AiRCHIVE">
+    <meta name="keywords" content="AiRCHIVE,AirPi,Raspberry Pi">
+	<meta name="author" content="Ioannis Athanasiadis">
+    <meta name="author" content="Argyrios Samourkasidis">
+
+
+    <title>{{title}}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="../static/css/app.css" rel="stylesheet" media="screen">
+    <link rel="shortcut icon" href="../static/img/favicon.ico"/>
+	
+	
+	<script type="text/javascript"
+	src="http://maps.googleapis.com/maps/api/js"></script>
+	<script src="../static/js/old.js"></script>
+
+	
+	<script type="text/javascript"
+	  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript">
+	  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+	</script>
+  </head>
+
+  <body>
+
+   <div class="container">
+      <nav class="navbar navbar-static" role="navigation">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <h1 class="navbar-brand"><a href="home.html">AiRCHIVE</a></h1>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+ 
+{% block body %}{% endblock %}
+  </div><!-- /.tab-content -->
+	     <script src="../static/js/jquery.js"></script>
+	     <script src="../static/js/bootstrap.min.js"></script>
+	     <script src="../static/js/jquery.flot.js"></script>
+	     <script src="../static/js/jquery.flot.time.js"></script>
+	     <script src="../static/js/jquery.flot.resize.js"></script>
+	     <script src="../static/js/flot.js"></script>  
+	     <script src="../static/js/moment.min.js"></script>
+	     <script src="../static/js/prism.js" type="text/javascript" charset="utf-8"></script>
+	     <script src="../static/js/jquery.datetimepicker.js"></script>
+	     <script src="../static/js/datetime.js"></script>
+	<script src="../static/js/chosen.jquery.js" type="text/javascript"></script>
+  <script type="text/javascript">
+      var config = {
+        '.chosen-select'           : {},
+        '.chosen-select-deselect'  : {allow_single_deselect:true},
+        '.chosen-select-no-single' : {disable_search_threshold:10},
+        '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+        '.chosen-select-width'     : {width:"95%"},
+        '.select-filter'           : {},
+        '.select-filter-deselect'  : {allow_single_deselect:true},
+        '.select-filter-no-single' : {disable_search_threshold:10},
+        '.select-filter-no-results': {no_results_text:'Oops, nothing found!'},
+        '.select-filter-width'     : {width:"95%"}
+      };
+      for (var selector in config) {
+        $(selector).chosen(config[selector]);
+      }
+    </script>
+  <!--<script type=text/javascript src="{{
+    url_for('static', filename='jquery.flot.js') }}"></script>-->
+    </body>
+  </html>

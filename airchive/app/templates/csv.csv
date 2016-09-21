@@ -1,0 +1,3 @@
+Quantity,Datetime,Value,Station,Sensor
+{%for measurement in results%}
+{{measurement.quantity.name}},{{measurement.timestamp}},{{measurement.value}},{{measurement.station.name}},{{measurement.sensor.short_name}}{%endfor%}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" 
+      xmlns:georss="http://www.georss.org/georss" 
+      xmlns:gml="http://www.opengis.net/gml">
+   <title>{{last.quantity.name}}</title>
+   <subtitle>{{last.quantity.name}} measurements from {{last.station.name}} station</subtitle>
+   <id>{{station.station_url}}</id>
+   <updated>{{last.timestamp}}</updated>
+   <author>
+      <name>AiRCHIVE</name>
+      <email>asamour@ee.duth.gr</email>
+   </author>
+   {%for measurement in results%}
+   <entry>
+      <title>{{measurement.quantity.name}}@{{measurement.timestamp}}</title>
+	  <link href="{{measurement.station.station_url}}"/>
+      <id>{{measurement.station.station_url}}/{{measurement.timestamp}}</id>
+      <updated>{{measurement.timestamp}}</updated>
+      <summary>Latitude: {{measurement.station.latitude}} Longtitude: {{measurement.station.longitude}} Value: {{measurement.value}} {%if measurement.quantity.uom_name%}{{measurement.quantity.uom_name}}{%endif%}</summary>
+      <georss:point>{{measurement.station.latitude}} {{measurement.station.longitude}}</georss:point>
+      </entry>
+	  {%endfor%}
+      <entry>
+         <title>{{last.quantity.name}}@{{last.timestamp}}</title>
+         <link href="{{last.station.station_url}}"/>
+         <id>{{last.station.station_url}}/{{last.timestamp}}</id>
+         <updated>{{last.timestamp}}</updated>
+         <summary>Latitude:{{last.station.latitude}} Longitude:{{last.station.longitude}} Value: {{last.value}}{%if last.quantity.uom_name%} {{last.quantity.uom_name}}{%endif%}</summary>
+         <georss:point>{{last.station.latitude}} {{last.station.longitude}}</georss:point>
+         </entry>
+</feed>

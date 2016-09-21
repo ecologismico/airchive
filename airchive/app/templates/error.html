@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav nav-pills navbar-nav">
+            <li id="home"><a href="home">Home</a></li>
+            <li id="about"><a href="about">API</a></li>
+            <li id="sos"><a href="SensorObservationService">SensorObservationService</a></li>
+            <li  id="gui"><a href="gui">GraphicalUserInterface</a></li>
+			<li  id="gui"><a href="maps">Maps</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    <style type="text/css" media="all">
+        /* fix rtl for demo */
+        .chosen-rtl .chosen-drop { left: -9000px; }
+    </style>
+
+  <div align="center">
+      <h3>An error has occurred:</h3>
+      <p>{{ errorMessage }}</p>
+  </div>
+
+  <!--div align="center">
+      <h3>An error has occurred: Error {{ errorTitle }}.</h3>
+      <p>{{ errorMessage }}</p>
+  </div-->
+
+{% endblock %}
+
+{% block more_scripts %}
+{% endblock %}
