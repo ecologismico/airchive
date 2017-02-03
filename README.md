@@ -1,1 +1,5 @@
-# airchive
+# Airchive
+Source code as used in: [A Miniature Data Repository on a Raspberry Pi](http://www.mdpi.com/2079-9292/6/1/1/htm), A. Samourkasidis and I. N. Athanasiadis, Electronics, vol. 6, no. 1, 2017.
+
+# Abstract
+This work demonstrates a low-cost, miniature data repository proof-of-concept. Such a system needs to be resilient to power and network failures, and expose adequate processing power for persistent, long-term storage. Additional services are required for interoperable data sharing and visualization. We designed and implemented a software tool called Airchive to run on a Raspberry Pi, in order to assemble a data repository for archiving and openly sharing timeseries data. Airchive employs a relational database for storing data and implements two standards for sharing data (namely the Sensor Observation Service by the Open Geospatial Consortium and the Protocol for Metadata Harvesting by the Open Archives Initiative). The system is demonstrated in a realistic indoor air pollution data acquisition scenario in a four-month experiment evaluating its autonomy and robustness under power and network disruptions. A stress test was also conducted to evaluate its performance against concurrent client requests.
